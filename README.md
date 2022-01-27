@@ -7,4 +7,4 @@ Comp social is a social app that aims to combine all your social media links tog
 1. Express and mongodb are used in the backend
 
 # Setup process
-***Might be available with docker soon***
+***Might be available with docker once I learn docker***
