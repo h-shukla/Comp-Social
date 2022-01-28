@@ -16,7 +16,6 @@ router.get('/getuser', async (req, res)=>{
 });
 
 // ROUTE 2: To create a new user
-// TODO: getting stuck in user with this email exists
 router.post('/createuser', [
     body("name", "Enter a valid name").isLength({min:3}),
     body("email", "Enter a valid email").isEmail(),

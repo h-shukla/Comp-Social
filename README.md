@@ -6,5 +6,18 @@ Comp social is a social app that aims to combine all your social media links tog
 1. Tailwind is used on frontend
 1. Express and mongodb are used in the backend
 
+# Negatives
+1. No encryption setup for passwords
+
 # Setup process
+For now,
+1. Do `npm i` for both frontend and backend directories.
+1. Install mongodb
+1. Install nodemon by `sudo npm i -g nodemon`
+1. Do `nodemon ./backend/index.js`
+1. Do npm start inside frontend folder on another terminal
+
+**The App should be available on localhost:3000/ in the browser**
+
+Later,
 ***Might be available with docker once I learn docker***
