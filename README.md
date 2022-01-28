@@ -9,7 +9,7 @@ Comp social is a social app that aims to combine all your social media links tog
 # Negatives
 1. No encryption setup for passwords
 
-# Setup process
+# Setup
 For now,
 1. Do `npm i` for both frontend and backend directories.
 1. Install mongodb
