@@ -19,19 +19,19 @@ const UserSchema = new Schema({
     },
     profiles: {
         facebook: {
-        	type: String,
+            type: String,
         },
         twitter: {
-        	type: String,
-        }
+            type: String,
+        },
         linkedin: {
-        	type: String,
-        }
+            type: String,
+        },
         github: {
-        	type: String,
-        }
+            type: String,
+        },
         instagram: {
-        	type: String,
+            type: String,
         }
     }
 });
