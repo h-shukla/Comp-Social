@@ -79,7 +79,6 @@ router.put('/updateuser', [
             // updating the existing user's information
             User.updateOne({email: req.body.email}, {newUser});
         }
-
         return res.json({
             success: true,
             userID: uniqueUserId,
