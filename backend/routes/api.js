@@ -34,7 +34,6 @@ router.post('/createuser', [
         let user = await User.findOne({
             email: req.body.email
         });
-        console.log(req.body.email);
         if (user!==null) {
             console.log(user);
             return res.status(400).json({
@@ -51,7 +50,7 @@ router.post('/createuser', [
             });
         }
         const uniqueUserId = user.id;
-        console.log("User created: \n" + user);
+        // console.log("User created: \n" + user);
         return res.json({
             success: true,
             userID: uniqueUserId
@@ -59,6 +58,32 @@ router.post('/createuser', [
     } catch (e) {
         console.log(e);
         return res.status(500).send('Internal server error occurred');
+    }
+});
+
+// ROUTE 3: To Update existing user
+router.put('/updateuser', [
+    body("email", "Enter a valid email").isEmail(),
+    body("password", "Enter password more than 6 characters").isLength({min:6})
+], async (req, res) => {
+    try {
+        let user = await User.findOne({email: req.body.email});
+        if (user===null) {
+            return res.status(400).json({
+                success: false,
+                error: "Sorry, there is no user with this email. Try again"
+            });
+        } else {
+            // TODO: make this update user endpoint work
+            user = req.body;
+        }
+
+        return res.json({
+            success: true,
+            userID: uniqueUserId,
+        });
+    } catch (e) {
+        return res.status(400).send("Internal server error occurred");
     }
 });
 
