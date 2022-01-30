@@ -50,7 +50,6 @@ router.post('/createuser', [
             });
         }
         const uniqueUserId = user.id;
-        // console.log("User created: \n" + user);
         return res.json({
             success: true,
             userID: uniqueUserId
@@ -74,8 +73,11 @@ router.put('/updateuser', [
                 error: "Sorry, there is no user with this email. Try again"
             });
         } else {
-            // TODO: make this update user endpoint work
-            user = req.body;
+            // destructuring and storing it into temporary variable
+            let newUser = user;
+            [newUser.name, newUser.email, newUser.password, newUser.profiles] = req.body;
+            // updating the existing user's information
+            User.updateOne({email: req.body.email}, {newUser});
         }
 
         return res.json({
