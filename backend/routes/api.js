@@ -16,7 +16,10 @@ const authenticate = async (email, password) => {
 };
 
 // ROUTE 1: To get user already existing in the database
-router.get('/getuser', async (req, res)=>{
+router.get('/getuser', [
+    body("email", "Enter a valid email").isEmail(),
+    body("password", "Enter password more than 6 characters").isLength({min:6})
+], async (req, res)=>{
     try {
         if (authenticate(req.body.email, req.body.password)) {
             const user = await User.findOne({email: req.body.email});
@@ -95,7 +98,6 @@ router.put('/updateuser', [
                 error: "Sorry, there is no user with this email. Try again"
             });
         }
-
         if (user.password === req.body.password) {
             const updatedUser = req.body.updatedUser;
             const queryRes = await User.updateOne({email: req.body.email}, {
@@ -115,13 +117,29 @@ router.put('/updateuser', [
                 }
             });
         }
-
         return res.json({
             success: false,
         });
     } catch (e) {
         console.log(e);
         return res.status(500).send("Internal server error occurred");
+    }
+});
+
+// ROUTE 4: Delete existing user
+router.delete('/deleteuser', [
+    body("email", "Enter a valid email").isEmail(),
+    body("password", "Enter password more than 6 characters").isLength({min:6})
+], async (req, res) => {
+    if (authenticate(req.body.email, req.body.passowrd)) {
+        const user = await User.deleteOne({ email: req.body.email });
+        return res.json({
+            success: true
+        });
+    } else {
+        return res.json({
+            success: false
+        });
     }
 });
 
