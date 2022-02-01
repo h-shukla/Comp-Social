@@ -72,19 +72,34 @@ router.put('/updateuser', [
                 success: false,
                 error: "Sorry, there is no user with this email. Try again"
             });
-        } else {
-            // destructuring and storing it into temporary variable
-            let newUser = user;
-            [newUser.name, newUser.email, newUser.password, newUser.profiles] = req.body;
-            // updating the existing user's information
-            User.updateOne({email: req.body.email}, {newUser});
         }
+
+        if (user.password === req.body.password) {
+            const updatedUser = req.body.updatedUser;
+            const queryRes = await User.updateOne({email: req.body.email}, {
+                name: updatedUser.name,
+                email: updatedUser.email,
+                password: updatedUser.password,
+                profiles: updatedUser.profiles,
+            });
+            console.log(queryRes);
+            return res.json({
+                success: true,
+                newDetails: {
+                    name: updatedUser.name,
+                    email: updatedUser.email,
+                    password: updatedUser.password,
+                    profiles: updatedUser.profiles,
+                }
+            });
+        }
+
         return res.json({
-            success: true,
-            userID: uniqueUserId,
+            success: false,
         });
     } catch (e) {
-        return res.status(400).send("Internal server error occurred");
+        console.log(e);
+        return res.status(500).send("Internal server error occurred");
     }
 });
 
