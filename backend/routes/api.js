@@ -3,14 +3,36 @@ const router = express.Router();
 const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 
+const authenticate = async (email, password) => {
+    try {
+        const user = await User.findOne({email: email});
+        if (user.password === passowrd) {
+            return true;
+        }
+        return false;
+    } catch (e) {
+        return false;
+    }
+}
+
 // ROUTE 1: To get user already existing in the database
 router.get('/getuser', async (req, res)=>{
     try {
-        const userID = req.body.id;
-        const user = await User.findById(userID);
-        return res.send(user);
+        if (authenticate(req.body.email, req.body.password)) {
+            const user = await User.findOne({email: req.body.email});
+            res.json({
+                success: true,
+                detials: {
+                    name: user.name,
+                    email: user.email,
+                    profiles: user.profiles
+                }
+            });
+        } else {
+            return res.json({ success: false });
+        }
     } catch (e) {
-        console.error(e);
+        console.log(e);
         return res.status(500).send("Internal server error");
     }
 });
