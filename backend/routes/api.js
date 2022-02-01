@@ -13,14 +13,14 @@ const authenticate = async (email, password) => {
     } catch (e) {
         return false;
     }
-}
+};
 
 // ROUTE 1: To get user already existing in the database
 router.get('/getuser', async (req, res)=>{
     try {
         if (authenticate(req.body.email, req.body.password)) {
             const user = await User.findOne({email: req.body.email});
-            res.json({
+            return res.json({
                 success: true,
                 detials: {
                     name: user.name,
