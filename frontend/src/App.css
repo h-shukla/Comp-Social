@@ -43,6 +43,10 @@ nav {
   justify-content: space-between;
 }
 
+.main-logo {
+  margin-left: 4rem;
+}
+
 nav ul {
   display: flex;
   list-style: none;

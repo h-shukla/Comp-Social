@@ -19,5 +19,5 @@ For now,
 
 **The App should be available on localhost:3000/ in the browser**
 
-Later,
-***Might be available with docker once I learn docker***
+Later when I learn docker,
+***You might be able to use it with docker***
