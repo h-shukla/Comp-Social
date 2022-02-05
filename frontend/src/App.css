@@ -1,62 +1,118 @@
+/*
+Borders and subtle accents #E27D60
+Floating item on top of everything #85DCBD
+Transistioning things #E8A87C
+Full page background #41B3A3
+ */
+
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 nav {
-  display: flex;
-  height: 10vh;
-  justify-content: space-between;
+    display: flex;
+    height: 10vh;
+    justify-content: space-between;
 }
 
 .main-logo {
-  margin-left: 4rem;
+    margin-left: 4rem;
 }
 
 nav ul {
-  display: flex;
-  list-style: none;
+    display: flex;
+    list-style: none;
 }
 
 nav ul li {
-  margin: 1rem 2rem;
+    margin: 1rem;
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.register-outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+
+.register-div {
+    background-color: #E27D60;
+    margin: 2rem 0rem;
+    padding: 1rem 3rem;
+    min-height: 70vh;
+    min-width: 46vw;
+}
+
+.btn {
+    background: #85DCBD;
+    color: #181818;
+    margin-top: 1rem;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.textfields {
+    margin: 0.5rem 0rem;
+}
+
+.textfields p {
+    margin-bottom: 0.3rem;
+}
+
+.textfields input {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    min-width: 20vw;
+}
+
+.register-p {
+    margin-top: 10rem;
+    margin-bottom: 1rem;
+}
+
+.signup-btn {
+    margin-top: 0rem;
 }

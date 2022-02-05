@@ -1,20 +1,25 @@
 import './App.css';
 import { 
-  BrowserRouter,
-  Routes,
-  Route
+    BrowserRouter,
+    Routes,
+    Route
 } from "react-router-dom";
-import Navbar from './components/Navbar.js';
+import { useState } from 'react';
+import Home from './components/Home';
+import Register from './components/Register';
+import Navbar from './components/Navbar';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navbar/>}>
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+    const [loggedIn, setLoggedIn] = useState(false);
+    return (
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={loggedIn?<Home/> : <Register />}>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
