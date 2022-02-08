@@ -14,6 +14,7 @@ For now,
 1. Do `npm i` for both frontend and backend directories.
 1. Install mongodb
 1. Run `npm start` in both frontend and backend directories to start both servers.
+
 **The App should be available on localhost:3000/ in the browser**
 
 Later when I learn docker,
