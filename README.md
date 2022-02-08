@@ -7,7 +7,7 @@ Comp social is a social media app that aims to combine all your social media lin
 1. Express.js and mongodb are used in the backend
 
 # Negatives
-1. No encryption setup for passwords
+1. No encryption setup for passwords yet
 
 # Setup
 For now,
