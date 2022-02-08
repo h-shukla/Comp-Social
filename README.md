@@ -13,10 +13,7 @@ Comp social is a social media app that aims to combine all your social media lin
 For now,
 1. Do `npm i` for both frontend and backend directories.
 1. Install mongodb
-1. Install nodemon by `sudo npm i -g nodemon`
-1. Do `nodemon ./backend/index.js`
-1. Do npm start inside frontend folder on another terminal
-
+1. Run `npm start` in both frontend and backend directories to start both servers.
 **The App should be available on localhost:3000/ in the browser**
 
 Later when I learn docker,
