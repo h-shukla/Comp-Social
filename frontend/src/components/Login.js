@@ -1,45 +1,56 @@
 import React, { useState } from 'react';
 import '../App.css';
 
-function Login() {
+function Login(props) {
+    // Setting credintials as state so we can change it later
     const [credintials, setCredintials] = useState({email: "", password: ""});
 
+    // handle the on change event
     const handleOnChange = (e) => {
         setCredintials({ ...credintials, [e.target.name]: e.target.value});
-        console.log(credintials);
     };
 
+    // handle login button click
+    // get the user data with fetch api
     const handleLogin = async (e) => {
-        const response = await fetch('http://localhost:5000/api/login', {
+        const data = {email: credintials.email, password: credintials.password};
+        const res = await fetch('http://localhost:5000/api/login', {
             method: 'POST',
+            mode: 'cors',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': "application/json"
             },
-            body: JSON.stringify({ email: credintials.email, password: credintials.password })
+            body: JSON.stringify(data)
         });
-        const resJson = await response.json();
-        console.log(resJson);
-        setCredintials({email: "", password: ""});
+        const jsonData = await res.json();
+        if (jsonData.success === false) {
+            setCredintials({name: "", email: "", password: ""});
+            console.log('invalid credintials');
+        } else {
+            props.changeLoggedIn();
+        }
     };
 
-    const handleSubmit = (e) => {
+    // handle the submit button
+    const handleSignup = (e) => {
         e.preventDefault();
-        console.log("signup clicked");
+        // console.log("signup clicked");
+        props.changeLoginState(false);
     };
 
     return (
-        <div className='login-outer'>
-          <div className='login-div'>
+        <div className='outer'>
+          <div className='inner'>
             <div className="textfields">
-              <h1>Login</h1>
+              <h1>Log In</h1>
               <p>Email</p>
               <input name="email" type="text" value={credintials.email} onChange={handleOnChange}/>
               <p>Password</p>
               <input name="password" type="text" value={credintials.password} onChange={handleOnChange}/>
               <br/>
-              <button className="login-btn btn" onClick={handleLogin}>Login</button>
-              <p className="login-p">Don't have an account?</p>
-              <button className="signup-btn btn" onClick={handleSubmit}>sign up</button>
+              <button className="btn" onClick={handleLogin}>Login</button>
+              <p className="question-p">Don't have an account?</p>
+              <button className="signup-btn btn" onClick={handleSignup}>sign up</button>
             </div>
           </div>
         </div>

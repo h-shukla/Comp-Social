@@ -6,10 +6,11 @@ const { body, validationResult } = require('express-validator');
 const authenticate = async (email, password) => {
     try {
         const user = await User.findOne({email: email});
-        if (user.password === passowrd) {
+        if (password === user.password) {
             return true;
+        } else {
+            return false;            
         }
-        return false;
     } catch (e) {
         return false;
     }
@@ -21,7 +22,8 @@ router.post('/login', [
     body("password", "Enter password more than 6 characters").isLength({min:6})
 ], async (req, res)=>{
     try {
-        if (authenticate(req.body.email, req.body.password)) {
+        const authRes = await authenticate(req.body.email, req.body.password);
+        if (authRes === true) {
             const user = await User.findOne({email: req.body.email});
             return res.json({
                 success: true,
