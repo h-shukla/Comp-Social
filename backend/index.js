@@ -1,5 +1,6 @@
 const express = require('express');
 const connectToMongo = require('./db');
+const cors = require('cors');
 
 // constant definitions
 const app = express();
@@ -8,6 +9,9 @@ connectToMongo();
 
 // To have the ability to parse json
 app.use(express.json());
+
+// To eliminate cross origin request errors
+app.use(cors());
 
 // Routes for the api
 app.use('/api', require('./routes/api.js'));

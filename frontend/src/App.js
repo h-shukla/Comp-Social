@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useState } from 'react';
 import Home from './components/Home';
-import Register from './components/Register';
+import Login from './components/Login';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path='/' element={loggedIn?<Home/> : <Register />}>
+            <Route path='/' element={loggedIn?<Home/> : <Login/>}>
             </Route>
           </Routes>
         </BrowserRouter>

@@ -3,7 +3,7 @@ Borders and subtle accents #E27D60
 Floating item on top of everything #85DCBD
 Transistioning things #E8A87C
 Full page background #41B3A3
- */
+*/
 
 .App {
     text-align: center;
@@ -68,19 +68,20 @@ nav ul li a {
     color: #ffffff;
 }
 
-.register-outer {
+.login-outer {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100vw;
 }
 
-.register-div {
+.login-div {
     background-color: #E27D60;
-    margin: 2rem 0rem;
-    padding: 1rem 3rem;
-    min-height: 70vh;
-    min-width: 46vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 78vh;
+    min-width: 65vw;
 }
 
 .btn {
@@ -95,6 +96,8 @@ nav ul li a {
 
 .textfields {
     margin: 0.5rem 0rem;
+    min-height: 54vh;
+    min-width: 40vw;
 }
 
 .textfields p {
@@ -108,7 +111,7 @@ nav ul li a {
     min-width: 20vw;
 }
 
-.register-p {
+.login-p {
     margin-top: 10rem;
     margin-bottom: 1rem;
 }

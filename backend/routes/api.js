@@ -15,8 +15,8 @@ const authenticate = async (email, password) => {
     }
 };
 
-// ROUTE 1: To get user already existing in the database
-router.get('/getuser', [
+// ROUTE 1: To login an already existing in the database
+router.post('/login', [
     body("email", "Enter a valid email").isEmail(),
     body("password", "Enter password more than 6 characters").isLength({min:6})
 ], async (req, res)=>{
