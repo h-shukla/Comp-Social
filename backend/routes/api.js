@@ -28,6 +28,7 @@ router.post('/login', [
             return res.json({
                 success: true,
                 detials: {
+                    id: user._id,
                     name: user.name,
                     email: user.email,
                     profiles: user.profiles
@@ -79,7 +80,7 @@ router.post('/createuser', [
         const uniqueUserId = user.id;
         return res.json({
             success: true,
-            userID: uniqueUserId
+            id: uniqueUserId
         });
     } catch (e) {
         console.log(e);
