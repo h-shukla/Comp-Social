@@ -99,7 +99,8 @@ nav ul li a {
 .textfields {
     margin: 0.5rem 0rem;
     min-height: 54vh;
-    min-width: 40vw;
+    min-width: 30vw;
+    margin: 0rem 3rem;
 }
 
 .textfields p {
@@ -114,7 +115,7 @@ nav ul li a {
 }
 
 .question-p {
-    margin-top: 10rem;
+    margin-top: 4rem;
     margin-bottom: 1rem;
 }
 

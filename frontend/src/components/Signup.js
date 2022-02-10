@@ -61,10 +61,20 @@ const Signup = (props) => {
                 
                 <p>Password</p>
                 <input name="password" type="text" value={credintials.password} onChange={handleOnChange}/>
+              </div>
+              <div className="textfields">
+                <p>Facebook</p>
+                <input name="facebook" type="text" onChange={handleOnChange}/>
+                <p>Twitter</p>
+                <input name="twitter" type="text" onChange={handleOnChange}/>
+                <p>Instagram</p>
+                <input name="instagram" type="text" onChange={handleOnChange}/>
+                <p>Linkedin</p>
+                <input name="linkedin" type="text" onChange={handleOnChange}/>
+                <p>Github</p>
+                <input name="github" type="text" onChange={handleOnChange}/>
                 <br/>
-                
                 <button className="btn" onClick={handleSignup}>Signup</button>
-                
                 <p className="question-p">Already have an account? Login</p>
                 <button className="login-btn btn" onClick={handleLogin}>Login</button>
               </div>
