@@ -2,7 +2,18 @@ import React, { useState } from 'react';
 import '../App.css';
 
 const Signup = (props) => {
-    const [credintials, setCredintials] = useState({name: "", email: "", password: ""});
+    const [credintials, setCredintials] = useState({
+        name: "", 
+        email: "", 
+        password: "",
+        profiles: {
+            facebook: "",
+            twitter: "",
+            instagram: "",
+            linkedin: "",
+            github: "",
+        }
+    });
 
     // handle the on change event
     const handleOnChange = (e) => {
@@ -12,7 +23,7 @@ const Signup = (props) => {
     // handle signup button click
     // and login the user automatically
     const handleSignup = async (e) => {
-        const data = {name: credintials.name, email: credintials.email, password: credintials.password};
+        const data = {name: credintials.name, email: credintials.email, password: credintials.password, profiles: credintials.profiles};
         const res = await fetch('http://localhost:5000/api/createuser', {
             method: 'POST',
             mode: 'cors',
@@ -34,7 +45,6 @@ const Signup = (props) => {
     const handleLogin = (e) => {
         e.preventDefault();
         props.changeLoginState(true);
-        // console.log("signup clicked");
     };
 
     return (

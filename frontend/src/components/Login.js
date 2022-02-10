@@ -34,7 +34,6 @@ function Login(props) {
     // handle the submit button
     const handleSignup = (e) => {
         e.preventDefault();
-        // console.log("signup clicked");
         props.changeLoginState(false);
     };
 
