@@ -7,7 +7,7 @@ function Login(props) {
 
     // handle the on change event
     const handleOnChange = (e) => {
-        setCredintials({ ...credintials, [e.target.name]: e.target.value});
+        setCredintials({...credintials, [e.target.name]: e.target.value});
     };
 
     // handle login button click
@@ -25,7 +25,7 @@ function Login(props) {
         const jsonData = await res.json();
         if (jsonData.success === false) {
             setCredintials({name: "", email: "", password: ""});
-            console.log('invalid credintials');
+            alert('invalid credintials');
         } else {
             props.changeLoggedIn();
         }

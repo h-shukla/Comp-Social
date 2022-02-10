@@ -17,20 +17,18 @@ function App() {
 
     // to change logged in status with child components using props
     const changeLoggedIn = () => {
-        if (loggedIn===false) {
+        if (loggedIn === false)
             setLoggedIn(true);
-        } else {
+        else
             setLoggedIn(false);
-        }
     };
 
     // to change isLogincurrent state
     const changeLoginState = () => {
-        if (isLoginCurrent === true) {
+        if (isLoginCurrent === true)
             setisLoginCurrent(false);
-        } else {
+        else
             setisLoginCurrent(true);
-        }
     };
 
     return (

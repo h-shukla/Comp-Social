@@ -35,7 +35,7 @@ const Signup = (props) => {
         const jsonData = await res.json();
         if (jsonData.success === false) {
             setCredintials({email: "", password: ""});
-            console.log('invalid credintials');
+            alert('invalid credintials');
         } else {
             props.changeLoggedIn();
         }
@@ -55,12 +55,16 @@ const Signup = (props) => {
                 <h1>Sign up</h1>
                 <p>Name</p>
                 <input name="name" type="text" value={credintials.name} onChange={handleOnChange}/>
+
                 <p>Email</p>
                 <input name="email" type="text" value={credintials.email} onChange={handleOnChange}/>
+                
                 <p>Password</p>
                 <input name="password" type="text" value={credintials.password} onChange={handleOnChange}/>
                 <br/>
+                
                 <button className="btn" onClick={handleSignup}>Signup</button>
+                
                 <p className="question-p">Already have an account? Login</p>
                 <button className="login-btn btn" onClick={handleLogin}>Login</button>
               </div>
