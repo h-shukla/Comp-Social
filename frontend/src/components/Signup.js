@@ -5,25 +5,27 @@ const Signup = (props) => {
     const [credintials, setCredintials] = useState({
         name: "", 
         email: "", 
-        password: "",
-        profiles: {
-            facebook: "",
-            twitter: "",
-            instagram: "",
-            linkedin: "",
-            github: "",
-        }
+        password: ""
     });
 
-    // handle the on change event
+    // defining profiles as different state as we can combine it with credintials in handlesignup
+    const [profiles, setProfiles] = useState({
+        facebook: "",
+        twitter: "",
+        instagram: "",
+        linkedin: "",
+        github: "",
+    });
+
+    // handle the on change event for states
     const handleOnChange = (e) => {
         setCredintials({ ...credintials, [e.target.name]: e.target.value});
+        setProfiles({...profiles, [e.target.name]: e.target.value});
     };
 
-    // handle signup button click
-    // and login the user automatically
+    // handle signup button click  login the user automatically
     const handleSignup = async (e) => {
-        const data = {name: credintials.name, email: credintials.email, password: credintials.password, profiles: credintials.profiles};
+        const data = {name: credintials.name, email: credintials.email, password: credintials.password, profiles: profiles};
         const res = await fetch('http://localhost:5000/api/createuser', {
             method: 'POST',
             mode: 'cors',
@@ -51,6 +53,7 @@ const Signup = (props) => {
         <>
           <div className='outer'>
             <div className='inner'>
+
               <div className="textfields">
                 <h1>Sign up</h1>
                 <p>Name</p>
@@ -62,6 +65,7 @@ const Signup = (props) => {
                 <p>Password</p>
                 <input name="password" type="text" value={credintials.password} onChange={handleOnChange}/>
               </div>
+
               <div className="textfields">
                 <p>Facebook</p>
                 <input name="facebook" type="text" onChange={handleOnChange}/>
@@ -78,6 +82,7 @@ const Signup = (props) => {
                 <p className="question-p">Already have an account? Login</p>
                 <button className="login-btn btn" onClick={handleLogin}>Login</button>
               </div>
+
             </div>
           </div>
         </>

@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import About from './components/About';
 
 function App() {
     // logged in status as state so we can update later
@@ -33,10 +34,11 @@ function App() {
 
     return (
         <BrowserRouter>
-          <Navbar setLoggedIn={setLoggedIn}/>
+          <Navbar setLoggedIn={setLoggedIn} setisLoginCurrent={setisLoginCurrent}/>
           <Routes>
             <Route path='/' element={loggedIn?<Home/>: isLoginCurrent?<Login changeLoggedIn={changeLoggedIn} changeLoginState={changeLoginState} />: <Signup changeLoggedIn={changeLoggedIn} changeLoginState={changeLoginState}/>}/>
-            <Route path='/home' element={<Home/>} />
+            <Route path='/home' element={loggedIn?<Home/>: isLoginCurrent?<Login changeLoggedIn={changeLoggedIn} changeLoginState={changeLoginState} />: <Signup changeLoggedIn={changeLoggedIn} changeLoginState={changeLoginState}/>} />
+            <Route path='/about' element={<About/>}/>
           </Routes>
         </BrowserRouter>
     );

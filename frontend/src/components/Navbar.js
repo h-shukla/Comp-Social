@@ -5,6 +5,7 @@ import '../App.css';
 function Navbar(props) {
     const handleOnClick = (e) => {
         props.setLoggedIn(false);
+        props.setisLoginCurrent(true);
     };
 
     return (

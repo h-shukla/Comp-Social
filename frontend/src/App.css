@@ -86,6 +86,14 @@ nav ul li a {
     border-radius: 3rem;
 }
 
+.inner-about {
+    background-color: #E27D60;
+    padding: 3rem;
+    min-height: 54vh;
+    max-width: 56vw;
+    border-radius: 3rem;
+}
+
 .btn {
     background: #85DCBD;
     color: #181818;
