@@ -54,16 +54,22 @@ nav {
     margin-left: 4rem;
 }
 
-nav ul {
+.links-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.links-ul {
     display: flex;
     list-style: none;
 }
 
-nav ul li {
+.links-ul li {
     margin: 1rem;
 }
 
-nav ul li a {
+.links-ul li a {
     text-decoration: none;
     color: #ffffff;
 }
@@ -129,4 +135,21 @@ nav ul li a {
 
 .signup-btn {
     margin-top: 0rem;
+}
+
+.search input {
+    margin-top: 1.5rem;
+    padding: .5rem;
+    border-radius: 8px;
+    border: none;
+}
+
+.search button {
+    margin: 10px;
+    background: #E27D60;
+}
+
+.search button a {
+    text-decoration: none;
+    color: white;
 }
