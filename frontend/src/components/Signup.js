@@ -39,6 +39,7 @@ const Signup = (props) => {
             setCredintials({email: "", password: ""});
             alert('invalid credintials');
         } else {
+            localStorage.setItem('email', credintials.email);
             props.changeLoggedIn();
         }
     };

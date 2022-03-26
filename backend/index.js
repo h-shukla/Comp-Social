@@ -1,6 +1,6 @@
-const express = require('express');
-const connectToMongo = require('./db');
-const cors = require('cors');
+import express from 'express';
+import connectToMongo from './db';
+import cors from 'cors';
 
 // constant definitions
 const app = express();
@@ -13,7 +13,7 @@ app.use(express.json());
 // To eliminate cross origin request errors
 app.use(cors());
 
-// Routes for the api
+// Route accessing the api
 app.use('/api', require('./routes/api.js'));
 
 // listening on the specified port

@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import Search from './Search';
 
-function Navbar(props) {
-
+const Navbar = (props) => {
     const handleOnClick = (e) => {
         props.setLoggedIn(false);
         props.setisLoginCurrent(true);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 
-function Login(props) {
+const Login = (props) => {
     // Setting credintials as state so we can change it later
     const [credintials, setCredintials] = useState({email: "", password: ""});
 
@@ -27,6 +27,7 @@ function Login(props) {
             setCredintials({name: "", email: "", password: ""});
             alert('invalid credintials');
         } else {
+            localStorage.setItem('email', credintials.email);
             props.changeLoggedIn();
         }
     };
