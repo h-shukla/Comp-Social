@@ -1,3 +1,5 @@
+**Under Development. Not completed**
+
 # What is Comp Social?
 Comp social is a social media app that aims to combine all your social media links together in one place so it is easier to give someone all of your social media links.
 
